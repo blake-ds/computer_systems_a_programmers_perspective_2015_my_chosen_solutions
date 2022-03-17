@@ -3,6 +3,7 @@
 # out
 a.out
 scratch.c
+scratch.asm
 # debug
 cmake-build-debug
 
