@@ -1,0 +1,27 @@
+Original code:
+long rsum(long *start, long count)
+{
+if (count <= 0)
+	return 0;
+return *start + rsum(start+l, count-1);
+}
+
+y86-64 assembly:
+rsum:
+start in %rdi, count in %rsi
+xorq %rsi, %rsi
+andq %rsi, %rsi
+je :return
+pushq %rbx
+mrmovq (%rdi), %rbx
+irmovq %-1, %r10
+addq %r10, %rsi
+irmovq $8, %r10
+addq %r10, %rdi
+call rsum
+addq %rbx, %rax
+popq %rbx
+
+:return
+ret
+
