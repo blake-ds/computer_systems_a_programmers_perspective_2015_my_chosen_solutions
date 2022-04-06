@@ -42,7 +42,6 @@ test:
     jne	loop		        # Stop when 0
     ret			            # Return
 
-
 # Stack starts here and grows to lower addresses
     .pos 0x200
 stack:
