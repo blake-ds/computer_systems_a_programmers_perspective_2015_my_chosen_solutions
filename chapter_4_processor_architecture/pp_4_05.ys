@@ -1,5 +1,5 @@
-long absSum(long * start, long count)
-start in %rdi, count in %rsi
+# long absSum(long * start, long count)
+# start in %rdi, count in %rsi
 sum:
     irmovq	$8, %r8		    # Constant 8
     irmovq	$1, %r9		    # Constant 1
@@ -9,7 +9,7 @@ sum:
 
 loop:
     xorq	%r11, %r11	    # Constant 0
-    mrmovq	(%rdi), %r10	    # Get *start
+    mrmovq	(%rdi), %r10	# Get *start
     subq    %r10, %r11      # 0-x
     jle     greater         # Skip on -x <= 0  - so on x > 0
     rrmovq  %r11, %r10      # set *start to -x
@@ -18,7 +18,6 @@ greater:
     addq    %r10,%rax	    # Add to sum
     addq	%r8,%rdi	    # start++
     subq	%r9,%rsi	    # count-- & Set CC
-
 
 test:
     jne	loop		        # Stop when 0
