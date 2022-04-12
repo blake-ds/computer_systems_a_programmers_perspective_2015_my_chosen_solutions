@@ -1,0 +1,14 @@
+Fetch:
+    icode:ifun ← M1[0x037]
+    rA:rB ← M1[0x038]
+    valP ← 0x037 + 9 = 0x040
+Decode:
+    valB ← R[%rsp] = 128
+Execute:
+    valE ← 128 + -8 = 120
+Memory:
+    valM ← M8[120] =  0x040
+Writeback:
+    R[%rsp] ← 120
+PC update:
+    PC ← 0x041
